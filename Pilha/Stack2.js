@@ -29,9 +29,6 @@ class Stack{
         return this.items[this.count -1];
     }
     clear(){
-        while(!this.isEmpty()){
-            this.pop();
-        }
         this.items = {};
         this.count = 0;
 
@@ -48,3 +45,31 @@ class Stack{
     }
 
 }
+
+const stack = new Stack();
+console.log(Object.getOwnPropertyNames(stack));
+console.log(Object.keys(stack));
+console.log(stack.items);
+console.log(stack.toString());
+console.log(stack.size());
+
+stack.push(1);
+stack.push(2);
+stack.push(3);
+stack.push(4);
+stack.push(5);
+stack.push(6);
+stack.push(7);
+
+console.log(stack.size());
+
+stack.pop();
+stack.pop();
+
+console.log(stack.size());
+
+stack.clear();
+
+console.log(stack.size());
+
+
