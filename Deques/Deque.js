@@ -84,3 +84,25 @@ class Deque{
         return objString;
     }
 }
+const deque = new Deque();
+console.log(deque.isEmpty());
+deque.addBack('Anna');
+deque.addBack('Mario');
+deque.addBack('Ednaldo Pereira');
+console.log(deque.size());
+console.log(deque.toString());
+console.log('-----')
+
+deque.addFront('Henrique');
+console.log(deque.toString());
+deque.removeFront();
+console.log(deque.toString());
+deque.removeBack();
+console.log(deque.toString());
+console.log('-----')
+
+console.log(deque.peekBack());
+deque.clear();
+
+console.log(deque.size());
+console.log(deque.toString());
