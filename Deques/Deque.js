@@ -84,7 +84,35 @@ class Deque{
         return objString;
     }
 }
-const deque = new Deque();
+
+
+function palindromeCheker(aString){
+    if(aString === undefined || aString === null || aString !== null && aString.lenght === 0){
+        return false;
+    }
+    const deque = new Deque();
+    const lowerString = aString.toLocaleLowerCase().split(' ').join('');
+    let isEqual = true;
+    let firstChar, lastChar;
+    for(let i = 0; i <lowerString.lenght; i++){
+        deque.addBack(lowerString.charAt(i));
+    }
+    while(deque.size() > 1 && isEqual){
+        firstChar = deque.removeFront();
+        lastChar = deque.removeBack();
+        if(firstChar !== lastChar){
+            isEqual == false;
+        }
+    }
+    return isEqual;
+}
+
+console.log('a', palindromeCheker('a'));
+console.log('aa', palindromeCheker('aa'));
+console.log('kaique', palindromeCheker('kaique'));
+console.log('rasengan', palindromeCheker('rasengan'));
+console.log('manoBrow, 2pac, notorius big e raffa moreira brow', palindromeCheker('manoBrow, 2pac, notorius big e raffa moreira brow'));
+/*const deque = new Deque();
 console.log(deque.isEmpty());
 deque.addBack('Anna');
 deque.addBack('Mario');
@@ -105,4 +133,4 @@ console.log(deque.peekBack());
 deque.clear();
 
 console.log(deque.size());
-console.log(deque.toString());
+console.log(deque.toString()); */
