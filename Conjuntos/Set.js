@@ -13,14 +13,14 @@ class Set {
         return false;
     }
     delete(element){
-        if(!this.hasw(element)){
+        if(this.has(element)){
             delete this.items[element];
             return true;
         }
         return false;
     }
     clear(){
-        this.element = {};
+        this.items = {};
     }
     size(){
         return Object.keys(this.items).length;
@@ -46,3 +46,24 @@ class Set {
         return false;
     }
 }
+const set = new Set();
+set.add('Agostinho');
+console.log(set.values());
+console.log(set.has('Agostinho'));
+console.log(set.size());
+
+set.add('Maria');
+set.add('José');
+set.add('Rafael');
+console.log(set.values());
+console.log(set.has('JOsé'));  
+console.log(set.has('José'));
+console.log(set.size());
+
+set.delete('José');
+set.delete('Agostinho');
+console.log(set.values());
+
+set.clear();
+console.log(set.values());
+
