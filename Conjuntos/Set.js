@@ -52,24 +52,34 @@ class Set {
         otherSet.values().forEach(values => unionSet.add(values));
         return unionSet;
     }
-        // Método de intersecção
-        intersection(otherSet){
-            const intersectionSet = new Set();
-            const values = this.values();
-            const otherValues = otherSet.values();
-            let biggerSet = values;
-            let smallerSet = otherValues;
-            if(otherValues.length - values.length > 0){
-                biggerSet =  otherValues;
-                smallerSet =  values;
-            }
-            smallerSet.forEach(values => {
-                if(biggerSet.includes(values)) {
-                    intersectionSet.add(values);
-                }
-            });
-            return intersectionSet;
+    // Método de intersecção
+    intersection(otherSet){
+        const intersectionSet = new Set();
+        const values = this.values();
+        const otherValues = otherSet.values();
+        let biggerSet = values;
+        let smallerSet = otherValues;
+        if(otherValues.length - values.length > 0){
+            biggerSet =  otherValues;
+            smallerSet =  values;
         }
+        smallerSet.forEach(values => {
+            if(biggerSet.includes(values)) {
+                intersectionSet.add(values);
+            }
+        });
+        return intersectionSet;
+    }
+    // Método de diferença
+    difference(otherSet){
+        const differenceSet =  new Set();
+        this.values().forEach(value => {
+            if(!otherSet.has(value)){
+                differenceSet.add(value);
+            }
+        });
+        return differenceSet;
+    }
 
 }
 /*const set = new Set();
@@ -93,13 +103,13 @@ console.log(set.values());
 set.clear();
 console.log(set.values()); */
 
-var setA = new Set();
+const setA = new Set();
 setA.add('Naruto');
 setA.add('Sasuke');
-setA.add('Kakashi');
-var setB = new Set();
-setB.add('Sakura');
+setA.add('Sakura');
+const setB = new Set();
 setB.add('Naruto');
-setB.add('Kakashi');
-const intersectionAB = setA.intersection(setB);
-console.log(intersectionAB.values());
+setB.add('Luffy');
+setB.add('Sakura');
+const differenceAB = setA.difference(setB);
+console.log(differenceAB.values());
