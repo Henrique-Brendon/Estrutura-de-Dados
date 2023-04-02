@@ -52,6 +52,25 @@ class Set {
         otherSet.values().forEach(values => unionSet.add(values));
         return unionSet;
     }
+        // Método de intersecção
+        intersection(otherSet){
+            const intersectionSet = new Set();
+            const values = this.values();
+            const otherValues = otherSet.values();
+            let biggerSet = values;
+            let smallerSet = otherValues;
+            if(otherValues.length - values.length > 0){
+                biggerSet =  otherValues;
+                smallerSet =  values;
+            }
+            smallerSet.forEach(values => {
+                if(biggerSet.includes(values)) {
+                    intersectionSet.add(values);
+                }
+            });
+            return intersectionSet;
+        }
+
 }
 /*const set = new Set();
 set.add('Agostinho');
@@ -80,7 +99,7 @@ setA.add('Sasuke');
 setA.add('Kakashi');
 var setB = new Set();
 setB.add('Sakura');
-setB.add('Hinata');
+setB.add('Naruto');
 setB.add('Kakashi');
-const unionAB = setA.union(setB);
-console.log(unionAB.values());
+const intersectionAB = setA.intersection(setB);
+console.log(intersectionAB.values());
