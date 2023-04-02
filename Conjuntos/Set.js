@@ -80,6 +80,21 @@ class Set {
         });
         return differenceSet;
     }
+    // Método de Subconjunto
+    isSubsetOf(otherSet){
+        if(this.size() > otherSet.size()) {
+            return false;
+        }
+        let isSubset = true;
+        this.values().every(values => {
+            if(!otherSet.has(values)){
+                isSubset = false;
+                return false;
+            }
+            return true;
+        });
+        return isSubset;
+    }
 
 }
 /*const set = new Set();
@@ -105,11 +120,13 @@ console.log(set.values()); */
 
 const setA = new Set();
 setA.add('Naruto');
-setA.add('Sasuke');
-setA.add('Sakura');
+setA.add('Luffy');
 const setB = new Set();
 setB.add('Naruto');
 setB.add('Luffy');
 setB.add('Sakura');
-const differenceAB = setA.difference(setB);
-console.log(differenceAB.values());
+const setC = new Set();
+setC.add('Luffy');
+setC.add('Sakura');
+console.log(setA.isSubsetOf(setB));
+console.log(setA.isSubsetOf(setC));
