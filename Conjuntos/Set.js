@@ -45,8 +45,15 @@ class Set {
         }
         return false;
     }
+    //  Método Union
+    union(otherSet){
+        const unionSet = new Set();
+        this.values().forEach(values => unionSet.add(values));
+        otherSet.values().forEach(values => unionSet.add(values));
+        return unionSet;
+    }
 }
-const set = new Set();
+/*const set = new Set();
 set.add('Agostinho');
 console.log(set.values());
 console.log(set.has('Agostinho'));
@@ -65,5 +72,15 @@ set.delete('Agostinho');
 console.log(set.values());
 
 set.clear();
-console.log(set.values());
+console.log(set.values()); */
 
+var setA = new Set();
+setA.add('Naruto');
+setA.add('Sasuke');
+setA.add('Kakashi');
+var setB = new Set();
+setB.add('Sakura');
+setB.add('Hinata');
+setB.add('Kakashi');
+const unionAB = setA.union(setB);
+console.log(unionAB.values());
